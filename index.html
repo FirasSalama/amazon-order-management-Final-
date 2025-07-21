@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amazon Order Management Analytics</title>
+    <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
     <style>
         :root {
             --amazon-orange: #FF9900;
@@ -162,7 +163,7 @@
                 This dashboard provides insights into order processing times, fulfillment rates, and delivery performance across Amazon's order management system.
             </p>
             <div class="tableau-container">
-                <iframe src="https://public.tableau.com/views/AmazonOrderManagement-_17531131220370/sheet3?:language=en-GB&:display_count=n&:origin=viz_share_link" title="Order Fulfillment Dashboard"></iframe>
+                <iframe src="https://public.tableau.com/views/AmazonOrderManagement-_17531131220370/sheet3?:language=en-GB&:display_count=n&:origin=viz_share_link&:embed=true&:showVizHome=no" title="Order Fulfillment Dashboard"></iframe>
             </div>
         </section>
 
@@ -172,7 +173,7 @@
                 Analyze inventory levels, stock turnover rates, and supply chain efficiency to optimize Amazon's order management operations.
             </p>
             <div class="tableau-container">
-                <iframe src="https://public.tableau.com/views/AmazonOrderManagement-_17531130743770/sheet8?:language=en-GB&:display_count=n&:origin=viz_share_link" title="Inventory Analysis Dashboard"></iframe>
+                <iframe src="https://public.tableau.com/views/AmazonOrderManagement-_17531130743770/sheet8?:language=en-GB&:display_count=n&:origin=viz_share_link&:embed=true&:showVizHome=no" title="Inventory Analysis Dashboard"></iframe>
             </div>
         </section>
 
@@ -182,13 +183,13 @@
                 Explore customer order patterns, satisfaction metrics, and return rates to enhance the customer experience.
             </p>
             <div class="tableau-container">
-                <iframe src="https://public.tableau.com/views/AmazonOrderManagement-/sheet12?:language=en-GB&:display_count=n&:origin=viz_share_link" title="Customer Metrics Dashboard"></iframe>
+                <iframe src="https://public.tableau.com/views/AmazonOrderManagement-/sheet12?:language=en-GB&:display_count=n&:origin=viz_share_link&:embed=true&:showVizHome=no" title="Customer Metrics Dashboard"></iframe>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2025 Amazon Order Management Analytics. Powered by Tableau.</p>
+        <p>© 2025 Amazon Order Management Analytics. Powered by Tableau.</p>
     </footer>
 
     <script>
@@ -218,6 +219,18 @@
         sections.forEach(section => {
             observer.observe(section);
         });
+
+        // Initialize Tableau visualizations
+        function initViz() {
+            const containers = document.querySelectorAll('.tableau-container');
+            containers.forEach(container => {
+                const iframe = container.querySelector('iframe');
+                if (iframe) {
+                    new tableau.Viz(container, iframe.src);
+                }
+            });
+        }
+        window.addEventListener('load', initViz);
     </script>
 </body>
 </html>
